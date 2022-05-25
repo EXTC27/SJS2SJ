@@ -1,13 +1,14 @@
 import styled from "styled-components";
+import imgFile from "../../assets/images/avatar/avatar0.png";
 
 const TopMenuList = () => {
   return (
     <StTopMenuListCont>
-      <TopMenu cName="first" imgSrc={""} label={"제목0"} />
-      <TopMenu imgSrc={""} label={"제목1"} />
-      <TopMenu imgSrc={""} label={"제목2"} />
-      <TopMenu imgSrc={""} label={"제목3"} />
-      <TopMenu cName="last" imgSrc={""} label={"제목4"} />
+      <TopMenu cName="first" imgSrc={imgFile} label={"제목0"} />
+      <TopMenu imgSrc={imgFile} label={"제목1"} />
+      <TopMenu imgSrc={imgFile} label={"제목2"} />
+      <TopMenu imgSrc={imgFile} label={"제목3"} />
+      <TopMenu cName="last" imgSrc={imgFile} label={"제목4"} />
     </StTopMenuListCont>
   );
 };
@@ -31,11 +32,7 @@ const TopMenu = ({ cName, imgSrc, label }) => {
       <div className="avatar-cont-grad">
         <div className="avatar-cont">
           <div className="avatar-img">
-            <img
-              src={`${process.env.REACT_APP_PATH}/assets/images/image0.png`}
-              alt=""
-              loading="lazy"
-            />
+            <img src={imgSrc} alt="" />
           </div>
         </div>
       </div>

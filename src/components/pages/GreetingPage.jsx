@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { Button } from "@mui/material";
 import { KeyboardDoubleArrowUpRounded } from "@mui/icons-material";
-import greetingImg from "../../assets/images/greeting/greeting.png";
+import imgFile from "../../assets/images/greeting/greeting.png";
 
 const GreetingPage = ({ setOnGreeting }) => {
   const [enableBtn, setEnableBtn] = useState(false);
@@ -47,16 +47,9 @@ const GreetingPage = ({ setOnGreeting }) => {
 
   return (
     <StGreetingPageCont id="greeting-page-cont">
-      <img
-        id="bg-img"
-        src={`${process.env.REACT_APP_PATH}/assets/images/image0.png`}
-        // src={greetingImg}
-        alt=""
-        loading="lazy"
-        onLoad={runAnimation}
-      />
+      <img id="bg-img" src={imgFile} alt="" onLoad={runAnimation} />
       <div className="text-cont">
-        <div className="font mapo text line0">저희 결혼합니다</div>
+        <div className="font mapo text line0">우리 결혼합니다</div>
         <div className="font mapo text line1">2022년 7월 2일 오후 2시</div>
         <div className="font mapo text line2">
           서울 정동 프란치스코 교육회관 성당
@@ -72,7 +65,7 @@ const GreetingPage = ({ setOnGreeting }) => {
           </Button>
           <div className="click-cont">
             <KeyboardDoubleArrowUpRounded />
-            <div className="font click">CLick</div>
+            <div className="font click">CLICK</div>
           </div>
         </div>
       </div>
@@ -101,7 +94,6 @@ const StGreetingPageCont = styled.div`
     object-position: center;
     opacity: 0;
     transition: opacity 1.5s ease-out;
-    /* animation: fadeIn 1s ease-in 0s forwards; */
   }
   .text-cont {
     position: absolute;
@@ -146,7 +138,6 @@ const StGreetingPageCont = styled.div`
     .MuiButton-contained {
       opacity: 0;
       transition: opacity 1s ease-in-out;
-      /* animation: fadeIn 1s ease-in-out 2s forwards; */
       padding: 16px;
       border-radius: 16px;
       margin-bottom: ${({ theme }) => theme.resHpx(16, theme)};
@@ -167,8 +158,6 @@ const StGreetingPageCont = styled.div`
       opacity: 0;
       transition: opacity 0.8s ease-in-out;
       animation: bounce 0.6s linear infinite;
-      /* animation: fadeIn 0.8s ease-in-out 3s forwards,
-        bounce 0.6s linear infinite; */
       .click {
         font-size: ${({ theme }) => theme.resWpx(24, theme)};
         font-weight: bold;
@@ -176,14 +165,6 @@ const StGreetingPageCont = styled.div`
     }
   }
 
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
   @keyframes moveUpFadeIn {
     0% {
       opacity: 0;

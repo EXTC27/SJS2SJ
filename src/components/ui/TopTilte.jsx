@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import svgFile from "../../assets/icons/SJandSJ.svg";
 
 const TopTitle = () => {
   return (
@@ -10,11 +11,7 @@ const TopTitle = () => {
         );
       }}
     >
-      <img
-        src={`${process.env.REACT_APP_PATH}/assets/icons/SJandSJ.svg`}
-        alt=""
-        loading="lazy"
-      />
+      <img src={svgFile} alt="" />
     </StTopTitleCont>
   );
 };
