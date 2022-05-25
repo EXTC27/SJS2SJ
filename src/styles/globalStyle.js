@@ -25,12 +25,11 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  .text {
+  .font {
     font-family: 'Noto Sans KR', sans-serif;
-    &.the-face {
-      font-family: 'Noto Sans KR', sans-serif;
+    &.mapo {
+      font-family: 'MapoGoldenPier';
     }
-    font-weight: normal;
     width: fit-content;
 
   }

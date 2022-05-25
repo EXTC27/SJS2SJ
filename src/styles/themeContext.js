@@ -1,28 +1,28 @@
-import { css } from 'styled-components';
+import { css } from "styled-components";
 
 const calcRem = (size) => `${size / 16}rem`;
 // ${({theme}) => theme.resWpx(0, theme)}
-const resWpx = (width, theme) => `${width * theme.appWidth / (theme.isMobile ? 750 : 1920)}px`;
+const resWpx = (width, theme) => `${(width * theme.appWidth) / 750}px`;
 // ${({theme}) => theme.resHpx(0, theme)}
-const resHpx = (height, theme) => `${height * theme.appHeight / (theme.isMobile ? 1624 : 1080)}px`;
+const resHpx = (height, theme) => `${(height * theme.appHeight) / 1624}px`;
 
 // ${({theme}) => theme.flex('', '', '')}
-const flex = (_jc = 'normal', _ai = 'stretch', _dir = 'row') =>
+const flex = (_jc = "normal", _ai = "stretch", _dir = "row") =>
   css`
-  display: flex;
-  justify-content: ${_jc};
-  align-items: ${_ai};
-  flex-direction: ${_dir};
-`;
+    display: flex;
+    justify-content: ${_jc};
+    align-items: ${_ai};
+    flex-direction: ${_dir};
+  `;
 
 // ${({theme}) => theme.backImg('', '', '')}
-const backImg = (_img = '', _pos = 'center', _size = 'cover') =>
+const backImg = (_img = "", _pos = "center", _size = "cover") =>
   css`
-  background-image: url(${_img});
-  background-position: ${_pos};
-  background-size: ${_size};
-  background-repeat: no-repeat;
-`;
+    background-image: url(${_img});
+    background-position: ${_pos};
+    background-size: ${_size};
+    background-repeat: no-repeat;
+  `;
 
 const selectNone = css`
   -ms-user-select: none;
@@ -64,12 +64,12 @@ const colors = {
   mainXLight: "#B2B8FA",
   mainXXLight: "#e1e3ff",
   background: "#F2F6FC",
-  parcelColor1: '#FF5A59',
-  parcelColor2: '#EF1414',
-  parcelColor3: '#B76164',
-  realColor1: '#738096',
-  realColor2: '#826DFF',
-  realColor3: '#3A15A5'
+  parcelColor1: "#FF5A59",
+  parcelColor2: "#EF1414",
+  parcelColor3: "#B76164",
+  realColor1: "#738096",
+  realColor2: "#826DFF",
+  realColor3: "#3A15A5",
 };
 
 const theme = {
@@ -82,7 +82,7 @@ const theme = {
   backImg,
   selectNone,
   selectable,
-  navHeight: '72px',
+  navHeight: "72px",
 };
 
 export default theme;
