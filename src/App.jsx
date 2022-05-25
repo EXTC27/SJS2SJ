@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import theme from "./styles/themeContext";
 import { useResize } from "./hooks/customHooks";
@@ -8,20 +7,16 @@ import MainPage from "./components/pages/MainPage";
 
 const App = () => {
   const { appWidth, appHeight } = useResize();
-  const _nav = useNavigate();
-  useEffect(() => {
-    window.setTimeout(() => {
-      _nav("/main", { replace: true });
-    }, 1000);
-  }, []);
+  const [onGreeting, setOnGreeting] = useState(true);
 
   return (
     <StAppCont>
       <ThemeProvider theme={{ ...theme, appWidth, appHeight }}>
-        <Routes>
-          <Route path="/" element={<GreetingPage />} />
-          <Route path="/main" element={<MainPage />} />
-        </Routes>
+        {onGreeting ? (
+          <GreetingPage setOnGreeting={setOnGreeting} />
+        ) : (
+          <MainPage />
+        )}
       </ThemeProvider>
     </StAppCont>
   );
@@ -29,4 +24,8 @@ const App = () => {
 
 export default App;
 
-const StAppCont = styled.main``;
+const StAppCont = styled.main`
+  margin: auto;
+  max-width: 750px;
+  width: ${({ theme }) => theme.appWidth}px;
+`;
