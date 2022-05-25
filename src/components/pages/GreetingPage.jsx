@@ -2,8 +2,7 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { Button } from "@mui/material";
 import { KeyboardDoubleArrowUpRounded } from "@mui/icons-material";
-// import greetingImg from "../../assets/images/greeting/greeting.png";
-import greetingImg from "../../assets/images/image0.png";
+import greetingImg from "../../assets/images/greeting/greeting.png";
 
 const GreetingPage = ({ setOnGreeting }) => {
   const [enableBtn, setEnableBtn] = useState(false);
@@ -50,10 +49,10 @@ const GreetingPage = ({ setOnGreeting }) => {
     <StGreetingPageCont id="greeting-page-cont">
       <img
         id="bg-img"
-        // src={`${process.env.REACT_APP_PATH}/assets/images/image0.png`}
-        src={greetingImg}
+        src={`${process.env.REACT_APP_PATH}/assets/images/image0.png`}
+        // src={greetingImg}
         alt=""
-        loading="lazy"
+        // loading="lazy"
         onLoad={runAnimation}
       />
       <div className="text-cont">
