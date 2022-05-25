@@ -1,3 +1,4 @@
+import { duration } from "@mui/material";
 import { css } from "styled-components";
 
 const calcRem = (size) => `${size / 16}rem`;
@@ -46,6 +47,28 @@ const selectable = css`
   -moz-user-drag: text;
   -o-user-drag: text;
 `;
+const hideScrollBar = css`
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+`;
+
+const MoveUpFadeIn = (duration = "1s", delay = "0s", curve = "linear") => css`
+  opacity: 0;
+  animation: upAndFadeIn ${duration} ${curve} ${delay} forwards;
+  @keyframes upAndFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
 
 const fontSizes = {
   small: calcRem(14),
@@ -82,7 +105,8 @@ const theme = {
   backImg,
   selectNone,
   selectable,
-  navHeight: "72px",
+  hideScrollBar,
+  MoveUpFadeIn,
 };
 
 export default theme;

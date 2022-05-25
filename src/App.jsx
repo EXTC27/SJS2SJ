@@ -28,4 +28,6 @@ const StAppCont = styled.main`
   margin: auto;
   max-width: 750px;
   width: ${({ theme }) => theme.appWidth}px;
+
+  ${({ theme }) => theme.hideScrollBar}
 `;

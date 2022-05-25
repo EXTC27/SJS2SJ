@@ -31,7 +31,6 @@ const GlobalStyle = createGlobalStyle`
       font-family: 'MapoGoldenPier';
     }
     width: fit-content;
-
   }
 
 `;

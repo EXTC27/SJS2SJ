@@ -1,17 +1,61 @@
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { Button } from "@mui/material";
 import { KeyboardDoubleArrowUpRounded } from "@mui/icons-material";
+// import greetingImg from "../../assets/images/greeting/greeting.png";
+import greetingImg from "../../assets/images/image0.png";
 
 const GreetingPage = ({ setOnGreeting }) => {
-  const moveMainPage = () => {
-    window.setTimeout(() => {
-      setOnGreeting(false);
-    }, 1500);
-    document.getElementById("greeting-cont").style.opacity = 0;
+  const [enableBtn, setEnableBtn] = useState(false);
+  const stopWatch = useRef(Date.now());
+  const alarm = {
+    setup: function (callback, duration) {
+      this.timeoutID = setTimeout(() => {
+        callback();
+        this.cancel();
+      }, duration);
+    },
+    cancel: function () {
+      clearTimeout(this.timeoutID);
+    },
   };
+
+  const moveMainPage = () => {
+    if (!enableBtn) return;
+    alarm.setup(() => setOnGreeting(false), 1500);
+    document.getElementById("greeting-page-cont").style.opacity = 0;
+  };
+
+  const runAnimation = () => {
+    const _now = Date.now();
+    const _compare =
+      2200 - _now + stopWatch.current > 0 ? 2200 - _now + stopWatch.current : 0;
+
+    alarm.setup(() => setEnableBtn(true), _compare + 2000);
+
+    const _bg_img = document.getElementById("bg-img").style;
+    const _btn = document.getElementsByClassName("MuiButton-contained")[0]
+      .style;
+    const _click = document.getElementsByClassName("click-cont")[0].style;
+    _bg_img.transitionDelay = `${_compare}ms`;
+    _bg_img.opacity = 1;
+
+    _btn.transitionDelay = `${_compare + 1000}ms`;
+    _btn.opacity = 1;
+    _click.transitionDelay = `${_compare + 2000}ms`;
+    _click.opacity = 1;
+  };
+
   return (
-    <StGreetingPageCont id="greeting-cont">
-      <div className="img-cont" />
+    <StGreetingPageCont id="greeting-page-cont">
+      <img
+        id="bg-img"
+        // src={`${process.env.REACT_APP_PATH}/assets/images/image0.png`}
+        src={greetingImg}
+        alt=""
+        loading="lazy"
+        onLoad={runAnimation}
+      />
       <div className="text-cont">
         <div className="font mapo text line0">저희 결혼합니다</div>
         <div className="font mapo text line1">2022년 7월 2일 오후 2시</div>
@@ -19,7 +63,12 @@ const GreetingPage = ({ setOnGreeting }) => {
           서울 정동 프란치스코 교육회관 성당
         </div>
         <div className="btn-cont">
-          <Button className="font" variant="contained" onClick={moveMainPage}>
+          <Button
+            className="font"
+            variant="contained"
+            onClick={moveMainPage}
+            disableRipple={!enableBtn}
+          >
             여러분을 초대합니다
           </Button>
           <div className="click-cont">
@@ -39,20 +88,21 @@ const StGreetingPageCont = styled.div`
   width: 100%;
   height: ${({ theme }) => theme.appHeight}px;
 
-  transition: all 1s ease-out;
   opacity: 1;
+  transition: opacity 1s ease-out;
 
-  .img-cont {
+  img {
     position: absolute;
     z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    ${({ theme }) =>
-      theme.backImg(`${process.env.REACT_APP_PATH}/assets/images/image0.png`)};
-    animation: fadeIn 1.5s ease-in 1.2s forwards;
+    object-fit: cover;
+    object-position: center;
     opacity: 0;
+    transition: opacity 1.5s ease-out;
+    /* animation: fadeIn 1s ease-in 0s forwards; */
   }
   .text-cont {
     position: absolute;
@@ -74,7 +124,7 @@ const StGreetingPageCont = styled.div`
       margin-bottom: ${({ theme }) => theme.resHpx(38, theme)};
 
       opacity: 0;
-      animation: upAndFadeIn 1s linear forwards;
+      animation: moveUpFadeIn 1s linear forwards;
     }
     .line0 {
       animation-delay: 0s;
@@ -96,7 +146,8 @@ const StGreetingPageCont = styled.div`
 
     .MuiButton-contained {
       opacity: 0;
-      animation: fadeIn 1s ease-in-out 2s forwards;
+      transition: opacity 1s ease-in-out;
+      /* animation: fadeIn 1s ease-in-out 2s forwards; */
       padding: 16px;
       border-radius: 16px;
       margin-bottom: ${({ theme }) => theme.resHpx(16, theme)};
@@ -115,8 +166,10 @@ const StGreetingPageCont = styled.div`
       justify-content: center;
 
       opacity: 0;
-      animation: fadeIn 0.8s ease-in-out 3s forwards,
-        bounce 0.6s linear infinite;
+      transition: opacity 0.8s ease-in-out;
+      animation: bounce 0.6s linear infinite;
+      /* animation: fadeIn 0.8s ease-in-out 3s forwards,
+        bounce 0.6s linear infinite; */
       .click {
         font-size: ${({ theme }) => theme.resWpx(24, theme)};
         font-weight: bold;
@@ -132,7 +185,7 @@ const StGreetingPageCont = styled.div`
       opacity: 1;
     }
   }
-  @keyframes upAndFadeIn {
+  @keyframes moveUpFadeIn {
     0% {
       opacity: 0;
       transform: translateY(70%);
