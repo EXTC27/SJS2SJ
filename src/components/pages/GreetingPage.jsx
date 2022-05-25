@@ -52,7 +52,7 @@ const GreetingPage = ({ setOnGreeting }) => {
         src={`${process.env.REACT_APP_PATH}/assets/images/image0.png`}
         // src={greetingImg}
         alt=""
-        // loading="lazy"
+        loading="lazy"
         onLoad={runAnimation}
       />
       <div className="text-cont">
@@ -72,7 +72,7 @@ const GreetingPage = ({ setOnGreeting }) => {
           </Button>
           <div className="click-cont">
             <KeyboardDoubleArrowUpRounded />
-            <div className="font click">Click</div>
+            <div className="font click">CLick</div>
           </div>
         </div>
       </div>
