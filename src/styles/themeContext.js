@@ -55,13 +55,26 @@ const hideScrollBar = css`
   scrollbar-width: none; /* Firefox */
 `;
 
-const MoveUpFadeIn = (duration = "1s", delay = "0s", curve = "linear") => css`
+const FadeIn = (duration = "1s", delay = "0s", curve = "linear") => css`
+  opacity: 0;
+  animation: fadeIn ${duration} ${curve} ${delay} forwards;
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+`;
+
+const MoveUpFadeIn = (duration = "1s", delay = "0s", curve = "linear", startTranslate="30%") => css`
   opacity: 0;
   animation: upAndFadeIn ${duration} ${curve} ${delay} forwards;
   @keyframes upAndFadeIn {
     0% {
       opacity: 0;
-      transform: translateY(30%);
+      transform: translateY(${startTranslate});
     }
     100% {
       opacity: 1;
@@ -106,6 +119,7 @@ const theme = {
   selectNone,
   selectable,
   hideScrollBar,
+  FadeIn,
   MoveUpFadeIn,
 };
 

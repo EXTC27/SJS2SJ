@@ -31,6 +31,20 @@ const GlobalStyle = createGlobalStyle`
       font-family: 'MapoGoldenPier';
     }
     width: fit-content;
+    
+  }
+
+  b {
+    font-weight: bold;
+    &.red{
+      color: red;
+    }
+    &.blue{
+      color: blue;
+    }
+    &.green{
+      color: green;
+    }
   }
 
 `;

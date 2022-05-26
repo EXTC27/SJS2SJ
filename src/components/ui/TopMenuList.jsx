@@ -1,14 +1,16 @@
 import styled from "styled-components";
-import imgFile from "../../assets/images/avatar/avatar0.png";
+import avatar1 from "../../assets/images/avatar/avatar1.png";
+import avatar2 from "../../assets/images/avatar/avatar2.png";
+import avatar3 from "../../assets/images/avatar/avatar3.png";
 
 const TopMenuList = () => {
   return (
     <StTopMenuListCont>
-      <TopMenu cName="first" imgSrc={imgFile} label={"제목0"} />
-      <TopMenu imgSrc={imgFile} label={"제목1"} />
-      <TopMenu imgSrc={imgFile} label={"제목2"} />
-      <TopMenu imgSrc={imgFile} label={"제목3"} />
-      <TopMenu cName="last" imgSrc={imgFile} label={"제목4"} />
+      <TopMenu cName="first" imgSrc={avatar1} label={"제목0"} />
+      <TopMenu imgSrc={avatar1} label={"제목1"} />
+      <TopMenu imgSrc={avatar2} label={"제목2"} />
+      <TopMenu imgSrc={avatar3} label={"제목3"} />
+      <TopMenu cName="last" imgSrc={avatar1} label={"제목4"} />
     </StTopMenuListCont>
   );
 };
