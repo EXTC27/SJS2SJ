@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import { Button } from "@mui/material";
+import { IconButton } from "@mui/material";
 import SJandSJ from "../../assets/icons/SJandSJ.svg";
 import menuIcon from "../../assets/icons/menu.svg";
 
-const TopTitle = ({ setOpenMenu }) => {
+const TopTitle = () => {
   return (
     <StTopTitleCont id="top-cont">
       <img className="sj-and-sj" src={SJandSJ} alt="" />
-      <StIconButton onClick={() => setOpenMenu(true)}>
+      <StIconButton color="default" onClick={() => {}}>
         <img src={menuIcon} alt="" />
       </StIconButton>
     </StTopTitleCont>
@@ -35,12 +35,11 @@ const StTopTitleCont = styled.div`
   ${({ theme }) => theme.FadeIn("0.8s")};
 `;
 
-const StIconButton = styled(Button)`
+const StIconButton = styled(IconButton)`
   display: flex;
   justify-content: center;
   align-items: center;
 
-  min-width: 0;
   width: ${({ theme }) => theme.resWpx(84, theme)};
   height: ${({ theme }) => theme.resWpx(84, theme)};
   padding: 0;
@@ -48,8 +47,5 @@ const StIconButton = styled(Button)`
 
   img {
     width: ${({ theme }) => theme.resWpx(40, theme)};
-  }
-  .MuiTouchRipple-root {
-    color: ababab;
   }
 `;

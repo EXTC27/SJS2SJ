@@ -50,7 +50,7 @@ const GreetingPage = ({ setOnGreeting }) => {
       <img id="bg-img" src={imgFile} alt="" onLoad={runAnimation} />
       <div className="text-cont">
         <div className="font mapo text line0">우리 결혼합니다</div>
-        <div className="font mapo text line1">2022년 7월 2일 오후 2시</div>
+        <div className="font mapo text line1">2022. 7. 2 토요일 오후 2시</div>
         <div className="font mapo text line2">
           서울 정동 프란치스코 교육회관 성당
         </div>
@@ -65,7 +65,7 @@ const GreetingPage = ({ setOnGreeting }) => {
           </Button>
           <div className="click-cont">
             <KeyboardDoubleArrowUpRounded />
-            <div className="font click">CLICK</div>
+            <div className="font click">클릭!</div>
           </div>
         </div>
       </div>

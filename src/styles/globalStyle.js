@@ -19,6 +19,9 @@ const GlobalStyle = createGlobalStyle`
    text-decoration: none;
    color: black;
   }
+  img {
+    pointer-events: none;
+  }
   .pointer {
     @media screen and (min-width: 751px){
       cursor: pointer;
@@ -44,6 +47,9 @@ const GlobalStyle = createGlobalStyle`
     }
     &.green{
       color: green;
+    }
+    &.purple {
+      color: purple;
     }
   }
 

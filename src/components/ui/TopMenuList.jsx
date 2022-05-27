@@ -1,16 +1,18 @@
 import styled from "styled-components";
-import avatar1 from "../../assets/images/avatar/avatar1.png";
-import avatar2 from "../../assets/images/avatar/avatar2.png";
-import avatar3 from "../../assets/images/avatar/avatar3.png";
+import pre0 from "../../assets/images/gallery/pre0.png";
+import pre1 from "../../assets/images/gallery/pre1.png";
+import pre2 from "../../assets/images/gallery/pre2.png";
+import pre3 from "../../assets/images/gallery/pre3.png";
+import pre4 from "../../assets/images/gallery/pre4.png";
 
 const TopMenuList = () => {
   return (
     <StTopMenuListCont>
-      <TopMenu cName="first" imgSrc={avatar1} label={"제목0"} />
-      <TopMenu imgSrc={avatar1} label={"제목1"} />
-      <TopMenu imgSrc={avatar2} label={"제목2"} />
-      <TopMenu imgSrc={avatar3} label={"제목3"} />
-      <TopMenu cName="last" imgSrc={avatar1} label={"제목4"} />
+      <TopMenu cName="first" imgSrc={pre0} label={"제목0"} />
+      <TopMenu imgSrc={pre1} label={"제목1"} />
+      <TopMenu imgSrc={pre2} label={"제목2"} />
+      <TopMenu imgSrc={pre3} label={"제목3"} />
+      <TopMenu cName="last" imgSrc={pre4} label={"제목4"} />
     </StTopMenuListCont>
   );
 };
@@ -38,7 +40,6 @@ const TopMenu = ({ cName, imgSrc, label }) => {
           </div>
         </div>
       </div>
-      <div className="font label">{label}</div>
     </StTopMenuCont>
   );
 };
@@ -46,9 +47,8 @@ const TopMenu = ({ cName, imgSrc, label }) => {
 const StTopMenuCont = styled.div`
   flex-shrink: 0;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
 
   margin-left: ${({ theme, cName }) =>
     cName === "first" ? theme.resWpx(32, theme) : theme.resWpx(38, theme)};
@@ -64,11 +64,12 @@ const StTopMenuCont = styled.div`
     height: ${({ theme }) => theme.resWpx(144, theme)};
     padding: ${({ theme }) => theme.resWpx(6, theme)};
     border-radius: 100%;
-    margin-bottom: ${({ theme }) => theme.resWpx(8, theme)};
 
     background: linear-gradient(225deg, #de11a5, #fcb26d);
 
     .avatar-cont {
+      background: white;
+
       display: flex;
       justify-content: center;
       align-items: center;
@@ -78,9 +79,8 @@ const StTopMenuCont = styled.div`
       padding: ${({ theme }) => theme.resWpx(4, theme)};
       border-radius: 100%;
 
-      background-color: white;
-
       .avatar-img {
+        background: #f6f6f6;
         width: 100%;
         height: 100%;
         border-radius: 100%;

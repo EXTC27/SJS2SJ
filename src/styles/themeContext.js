@@ -1,4 +1,3 @@
-import { duration } from "@mui/material";
 import { css } from "styled-components";
 
 const calcRem = (size) => `${size / 16}rem`;
@@ -68,7 +67,12 @@ const FadeIn = (duration = "1s", delay = "0s", curve = "linear") => css`
   }
 `;
 
-const MoveUpFadeIn = (duration = "1s", delay = "0s", curve = "linear", startTranslate="30%") => css`
+const MoveUpFadeIn = (
+  duration = "1s",
+  delay = "0s",
+  curve = "linear",
+  startTranslate = "30%"
+) => css`
   opacity: 0;
   animation: upAndFadeIn ${duration} ${curve} ${delay} forwards;
   @keyframes upAndFadeIn {

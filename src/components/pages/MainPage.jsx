@@ -5,9 +5,9 @@ import TopTitle from "../ui/TopTilte";
 import TopMenuList from "../ui/TopMenuList";
 import Footer from "../ui/Footer";
 import CardList from "../ui/CardList";
+import CustomToast from "../ui/CustomToast";
 
 const MainPage = () => {
-  const [openMenu, setOpenMenu] = useState();
   const [popToast, setPopToast] = useState("");
 
   useEffect(() => {
@@ -23,14 +23,18 @@ const MainPage = () => {
   }, []);
 
   return (
-    <MainPageStateContext.Provider value={{
-      popToast, setPopToast
-    }}>
+    <MainPageStateContext.Provider
+      value={{
+        popToast,
+        setPopToast,
+      }}
+    >
       <StMainPageCont id="main-page-cont">
-        <TopTitle setOpenMenu={setOpenMenu} />
+        <TopTitle />
         <TopMenuList />
         <CardList />
         <Footer />
+        <CustomToast />
       </StMainPageCont>
     </MainPageStateContext.Provider>
   );

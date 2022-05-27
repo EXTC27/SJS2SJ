@@ -1,11 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
-import { Button } from "@mui/material";
+import { IconButton } from "@mui/material";
 import heartSvg from "../../assets/icons/heart.svg";
 import commentSvg from "../../assets/icons/comment.svg";
+import { MainPageStateContext } from "../../context/stateContext";
 
 const Card = ({ profileImg, contents, view, cardContent }) => {
   const [isLike, setIsLike] = useState(false);
+  const { setPopToast } = useContext(MainPageStateContext);
+
+  useEffect(() => {
+    if (isLike) {
+      setPopToast("축하해 주셔서 감사드려요!! 😍");
+      setTimeout(() => {
+        setIsLike(false);
+      }, 2000);
+    }
+  }, [isLike, setPopToast]);
+
+  const clickComment = () => {
+    setPopToast("아직 개발중 이에요 😢");
+  };
 
   return (
     <StCardCont>
@@ -24,10 +39,15 @@ const Card = ({ profileImg, contents, view, cardContent }) => {
       </StCardTopCont>
       {view}
       <StBtnSet>
-        <div className="heart-btn">
+        <div
+          className="heart-btn"
+          onClick={() => {
+            setIsLike(true);
+          }}
+        >
           <img className="not-fill" src={heartSvg} alt={`${heartSvg}`} />
         </div>
-        <StCommentBtn>
+        <StCommentBtn color="default" onClick={clickComment}>
           <img src={commentSvg} alt={`${commentSvg}`} />
         </StCommentBtn>
       </StBtnSet>
@@ -127,17 +147,13 @@ const StBtnSet = styled.div`
   }
 `;
 
-const StCommentBtn = styled(Button)`
+const StCommentBtn = styled(IconButton)`
   display: flex;
   justify-content: center;
   align-items: center;
 
-  min-width: 0;
   width: ${({ theme }) => theme.resWpx(84, theme)};
   height: ${({ theme }) => theme.resWpx(84, theme)};
   padding: 0;
   border-radius: 100%;
-  .MuiTouchRipple-root {
-    color: #ababab;
-  }
 `;
