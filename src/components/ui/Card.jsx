@@ -11,7 +11,7 @@ const Card = ({ profileImg, contents, view, cardContent }) => {
 
   useEffect(() => {
     if (isLike) {
-      setPopToast("축하해 주셔서 감사드려요!! 😍");
+      setPopToast("축하해주셔서 감사합니다!! 😍");
       setTimeout(() => {
         setIsLike(false);
       }, 2000);
@@ -19,7 +19,7 @@ const Card = ({ profileImg, contents, view, cardContent }) => {
   }, [isLike, setPopToast]);
 
   const clickComment = () => {
-    setPopToast("아직 개발중 이에요 😢");
+    setPopToast("아직 개발중이에요 😢");
   };
 
   return (

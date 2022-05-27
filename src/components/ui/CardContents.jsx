@@ -18,7 +18,7 @@ export const CardContents0 = () => {
       </div>
       <div className="font line2">
         {
-          "2022년 7월 2일 토요일 오후 2시\n서울 정동 프란치스코 교육회관 성당\n\n성실하고 똑부러지는 신재와\n센스있고 사랑스러운 세진이가 만나서\n같은 곳을 바라보며 함께 걸어가려합니다.\n많은 축하 부탁드립니다. ☺️👏👏"
+          "2022년 7월 2일 토요일 오후 2시\n서울 정동 프란치스코 교육회관 성당\n\n성실하고 똑부러지는 🤵🏻신재와\n센스있고 사랑스러운 👰🏻‍♀️세진이가 만나서\n같은 곳을 바라보며 함께 걸어가려합니다.\n많은 축하 부탁드립니다. 🎊🎉☺️👏👏"
         }
       </div>
     </StCC0>
@@ -152,13 +152,13 @@ export const CardContents3 = () => {
       </div>
 
       <div className="font line1">
-        <b>• 화환</b>
+        <b>• 화환 💐</b>
         <div>
           성당 내에 <b className="red">화환을 반입할 수 없습니다.</b>
           <br />
           화환을 대신하여 어려운 이웃을 위해
           <br />
-          사랑의 쌀 혹은 성금 기부 부탁드립니다. 🤗
+          <b>사랑의 쌀</b> 혹은 <b>성금</b> 기부 부탁드립니다. 🤗
           <br />
         </div>
       </div>
@@ -228,17 +228,26 @@ export const CardContents4 = () => {
       <div className="font line0">
         <b>오시는 길_</b>
       </div>
-
       <div className="font line1">
-        <b>• 주소</b>
-        <div>서울시 중구 정동길 9 프란치스코 교육회관</div>
+        <b>• 주소 🗺</b>
+        <div className="address">
+          서울시 중구 정동길 9 프란치스코 교육회관
+          <CopyToClipboard
+            text="서울시 중구 정동길 9"
+            onCopy={() => {
+              setPopToast("성당 주소가 복사되었습니다.");
+            }}
+          >
+            <Button>복사</Button>
+          </CopyToClipboard>
+        </div>
       </div>
       <div className="font line1">
-        <b>• 문의</b>
+        <b>• 문의 📞</b>
         <div>02. 6364. 2245</div>
       </div>
       <div className="font line1">
-        <b>• 지하철</b>
+        <b>• 지하철 🚈</b>
         <div className="subway-0">
           <b className="purple">5호선</b> 서대문역 <b>5번 출구</b>
           <br />
@@ -253,7 +262,7 @@ export const CardContents4 = () => {
         </div>
       </div>
       <div className="font line1">
-        <b>• 시내버스</b>
+        <b>• 시내버스 🚍</b>
         <div className="bus-stop">서울역사박물관 앞 하차</div>
         <table>
           <tbody>
@@ -276,14 +285,25 @@ export const CardContents4 = () => {
               <th>
                 <b className="green">일반버스</b>
               </th>
-              <td>1002, 7019</td>
+              <td className="last-td">1002, 7019</td>
             </tr>
           </tbody>
         </table>
-        <div>
-          <br />
+      </div>
+      <div className="font line1">
+        <b>• 주차 🚘</b>
+        <div className="parking">이화정동빌딩 주차장</div>
+        <div className="address">
+          서울시 중구 정동길 17
+          <CopyToClipboard
+            text="서울시 중구 정동길 17"
+            onCopy={() => {
+              setPopToast("주차장 주소가 복사되었습니다.");
+            }}
+          >
+            <Button>복사</Button>
+          </CopyToClipboard>
         </div>
-        <div></div>
       </div>
     </StCC4>
   );
@@ -299,16 +319,35 @@ const StCC4 = styled.div`
     margin-bottom: ${({ theme }) => theme.resHpx(10, theme)};
   }
   .line1 {
+    width: 100%;
     font-size: ${({ theme }) => theme.resWpx(32, theme)};
     line-height: calc(46 / 32);
     margin-bottom: ${({ theme }) => theme.resHpx(54, theme)};
     word-break: keep-all;
 
-    .subway-0 {
-      margin-bottom: ${({ theme }) => theme.resHpx(18, theme)};
+    .address {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .MuiButton-root {
+      min-width: 0px;
+      padding: 8px;
+
+      color: white;
+      background-color: black;
+      font-size: ${({ theme }) => theme.resWpx(24, theme)};
+      line-height: 1;
+      letter-spacing: 0;
     }
 
-    .bus-stop {
+    .subway-0 {
+      margin-bottom: ${({ theme }) => theme.resHpx(12, theme)};
+    }
+
+    .bus-stop,
+    .parking {
       margin: ${({ theme }) => theme.resHpx(18, theme)} 0;
     }
     th {
@@ -316,6 +355,9 @@ const StCC4 = styled.div`
     }
     td {
       padding-bottom: ${({ theme }) => theme.resHpx(32, theme)};
+      &.last-td {
+        padding-bottom: 0;
+      }
     }
   }
 `;

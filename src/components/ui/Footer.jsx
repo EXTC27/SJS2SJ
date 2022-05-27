@@ -26,7 +26,8 @@ const StFooterCont = styled.div`
     white-space: pre;
     margin-bottom: 16px;
     line-height: 1.5;
-    font-size: 20px;
+    font-size: ${({ theme }) => theme.resWpx(36, theme)};
+    font-weight: bold;
     text-align: center;
   }
   .emoji {
