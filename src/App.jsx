@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import theme from "./styles/themeContext";
 import { useResize } from "./hooks/customHooks";
 import GreetingPage from "./components/pages/GreetingPage";
 import MainPage from "./components/pages/MainPage";
+import GalleryPage from "./components/pages/GalleryPage";
 
 const App = () => {
   const { appWidth, appHeight } = useResize();
@@ -27,11 +29,24 @@ const App = () => {
   return (
     <StAppCont>
       <ThemeProvider theme={{ ...theme, appWidth, appHeight }}>
-        {onGreeting ? (
-          <GreetingPage setOnGreeting={setOnGreeting} />
-        ) : (
-          <MainPage />
-        )}
+        <BrowserRouter basename={`${process.env.PUBLIC_URL}`}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  {" "}
+                  {onGreeting ? (
+                    <GreetingPage setOnGreeting={setOnGreeting} />
+                  ) : (
+                    <MainPage />
+                  )}
+                </>
+              }
+            />
+            <Route path="/gallery/:idx" element={<GalleryPage />} />
+          </Routes>
+        </BrowserRouter>
       </ThemeProvider>
     </StAppCont>
   );

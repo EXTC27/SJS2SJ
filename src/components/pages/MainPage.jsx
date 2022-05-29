@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { MainPageStateContext } from "../../context/stateContext";
 import TopTitle from "../ui/TopTilte";
@@ -11,7 +11,6 @@ import Modal from "../ui/Modal";
 const MainPage = () => {
   const [popToast, setPopToast] = useState("");
   const [popModal, setPopModal] = useState("");
-  // const [modalTxt, setModalTxt] = useState("");
 
   return (
     <MainPageStateContext.Provider
@@ -20,8 +19,6 @@ const MainPage = () => {
         setPopToast,
         popModal,
         setPopModal,
-        // modalTxt,
-        // setModalTxt,
       }}
     >
       <StMainPageCont id="main-page-cont">
@@ -41,7 +38,4 @@ const StMainPageCont = styled.div`
   background: white;
   width: 100%;
   padding-top: 72px;
-
-  /* transition: all 0.5s ease-out;
-  opacity: 0; */
 `;
