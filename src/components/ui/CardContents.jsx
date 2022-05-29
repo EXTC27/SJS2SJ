@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Button } from "@mui/material";
@@ -144,9 +145,123 @@ const StCC2 = styled.div`
 `;
 
 export const CardContents3 = () => {
-  const { setPopToast } = useContext(MainPageStateContext);
+  const { setPopModal, setModalTxt } = useContext(MainPageStateContext);
   return (
     <StCC3>
+      <div className="font line0">
+        <b>사랑하고 존경하는 부모님들_</b>
+      </div>
+
+      <div className="font line1">
+        <b>• 신랑측 혼주 🤵🏻</b>
+        <div className="parents-cont">
+          <div>
+            <div className="parents papa">
+              <div>아버지</div>
+              <b>김강식</b>
+            </div>
+            <div className="parents">
+              <div>어머니</div>
+              <b>정정화</b>
+            </div>
+          </div>
+          <div className="btn-cont">
+            <Button
+              className="donation"
+              variant="contained"
+              onClick={() => {
+                setPopModal("groom");
+              }}
+            >
+              신랑측 계좌
+            </Button>
+          </div>
+        </div>
+      </div>
+      <div className="font line1">
+        <b>• 신부측 혼주 👰🏻‍♀️</b>
+        <div className="parents-cont">
+          <div>
+            <div className="parents papa">
+              <div>아버지</div>
+              <b>손석동</b>
+            </div>
+            <div className="parents">
+              <div>어머니</div>
+              <b>이남숙</b>
+            </div>
+          </div>
+          <div className="btn-cont">
+            <Button
+              className="donation"
+              variant="contained"
+              onClick={() => {
+                setPopModal("bride");
+              }}
+            >
+              신부측 계좌
+            </Button>
+          </div>
+        </div>
+      </div>
+    </StCC3>
+  );
+};
+const StCC3 = styled.div`
+  width: 100%;
+  padding: 0 ${({ theme }) => theme.resWpx(32, theme)};
+  margin-bottom: ${({ theme }) => theme.resHpx(116, theme)};
+
+  .line0 {
+    font-size: ${({ theme }) => theme.resWpx(32, theme)};
+    line-height: calc(46 / 32);
+    margin-bottom: ${({ theme }) => theme.resHpx(36, theme)};
+  }
+  .line1 {
+    width: 100%;
+    font-size: ${({ theme }) => theme.resWpx(32, theme)};
+    line-height: calc(46 / 32);
+    margin-bottom: ${({ theme }) => theme.resHpx(48, theme)};
+    word-break: keep-all;
+
+    .parents-cont {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+    }
+
+    .parents {
+      display: flex;
+      justify-content: start;
+      align-items: end;
+      div {
+        font-size: ${({ theme }) => theme.resWpx(28, theme)};
+        margin-right: ${({ theme }) => theme.resWpx(16, theme)};
+      }
+    }
+    .papa {
+      margin-top: ${({ theme }) => theme.resHpx(24, theme)};
+      margin-bottom: ${({ theme }) => theme.resHpx(20, theme)};
+    }
+  }
+
+  .btn-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+
+    .donation {
+      background: black;
+    }
+  }
+`;
+
+export const CardContents4 = () => {
+  const { setPopToast } = useContext(MainPageStateContext);
+  return (
+    <StCC4>
       <div className="font line0">
         <b>안내 사항_</b>
       </div>
@@ -158,7 +273,7 @@ export const CardContents3 = () => {
           <br />
           화환을 대신하여 어려운 이웃을 위해
           <br />
-          <b>사랑의 쌀</b> 혹은 <b>성금</b> 기부 부탁드립니다. 🤗
+          <b>성금</b> 혹은 <b>사랑의 쌀</b> 기부 부탁드립니다. 🤗
           <br />
         </div>
       </div>
@@ -186,10 +301,10 @@ export const CardContents3 = () => {
           사랑의 쌀 기부하러가기
         </Button>
       </div>
-    </StCC3>
+    </StCC4>
   );
 };
-const StCC3 = styled.div`
+const StCC4 = styled.div`
   width: 100%;
   padding: 0 ${({ theme }) => theme.resWpx(32, theme)};
   margin-bottom: ${({ theme }) => theme.resHpx(116, theme)};
@@ -221,10 +336,10 @@ const StCC3 = styled.div`
   }
 `;
 
-export const CardContents4 = () => {
+export const CardContents5 = () => {
   const { setPopToast } = useContext(MainPageStateContext);
   return (
-    <StCC4>
+    <StCC5>
       <div className="font line0">
         <b>오시는 길_</b>
       </div>
@@ -305,10 +420,10 @@ export const CardContents4 = () => {
           </CopyToClipboard>
         </div>
       </div>
-    </StCC4>
+    </StCC5>
   );
 };
-const StCC4 = styled.div`
+const StCC5 = styled.div`
   width: 100%;
   padding: 0 ${({ theme }) => theme.resWpx(32, theme)};
   margin-bottom: ${({ theme }) => theme.resHpx(116, theme)};

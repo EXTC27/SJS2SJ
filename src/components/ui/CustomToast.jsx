@@ -1,26 +1,41 @@
-import React, { useEffect, useContext } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { MainPageStateContext } from "../../context/stateContext";
 
 const CustomToast = () => {
   const { popToast, setPopToast } = useContext(MainPageStateContext);
+  const onToastRef = useRef(false);
+  const st0 = useRef(null);
+  const st1 = useRef(null);
+  const st2 = useRef(null);
 
   useEffect(() => {
     if (popToast !== "") {
       const _dom = document.getElementById("custom-toast");
+      if (onToastRef.current) {
+        clearTimeout(st1.current);
+        clearTimeout(st2.current);
+      }
       _dom.style.display = "flex";
-      setTimeout(() => {
+      st0.current = setTimeout(() => {
         _dom.style.opacity = "1";
+        onToastRef.current = true;
       }, 100);
-      setTimeout(() => {
+      st1.current = setTimeout(() => {
         _dom.style.opacity = "0";
       }, 2000);
-      setTimeout(() => {
+      st2.current = setTimeout(() => {
         _dom.style.display = "none";
+        onToastRef.current = false;
         setPopToast("");
       }, 3000);
     }
-  }, [popToast, setPopToast]);
+    return () => {
+      clearTimeout(st0.current);
+      clearTimeout(st1.current);
+      clearTimeout(st2.current);
+    };
+  }, [popToast]);
 
   return (
     <StToastCont

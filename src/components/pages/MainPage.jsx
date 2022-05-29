@@ -6,27 +6,22 @@ import TopMenuList from "../ui/TopMenuList";
 import Footer from "../ui/Footer";
 import CardList from "../ui/CardList";
 import CustomToast from "../ui/CustomToast";
+import Modal from "../ui/Modal";
 
 const MainPage = () => {
   const [popToast, setPopToast] = useState("");
-
-  useEffect(() => {
-    // // document.getElementById("main-page-cont").style.opacity = 1;
-    // const callback = (e) => {
-    //   if (blockingCondition) {
-    //     e.preventDefault();
-    //     e.returnValue = "";
-    //   }
-    // };
-    // window.addEventListener("beforeunload", callback);
-    // return () => window.removeEventListener("beforeunload", callback);
-  }, []);
+  const [popModal, setPopModal] = useState("");
+  // const [modalTxt, setModalTxt] = useState("");
 
   return (
     <MainPageStateContext.Provider
       value={{
         popToast,
         setPopToast,
+        popModal,
+        setPopModal,
+        // modalTxt,
+        // setModalTxt,
       }}
     >
       <StMainPageCont id="main-page-cont">
@@ -36,6 +31,7 @@ const MainPage = () => {
         <Footer />
         <CustomToast />
       </StMainPageCont>
+      <Modal />
     </MainPageStateContext.Provider>
   );
 };

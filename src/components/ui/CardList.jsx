@@ -30,7 +30,7 @@ const CardList = () => {
       <Card
         profileImg={profileImg2}
         contents={contents["cardData"][2]}
-        view={<CardPhoto imgPos="left center" cardImg={cardImg2} />}
+        view={<CardPhoto imgPos="center" cardImg={cardImg2} />}
         cardContent={<CC.CardContents2 />}
       />
       <Card
@@ -42,8 +42,14 @@ const CardList = () => {
       <Card
         profileImg={profileImg3}
         contents={contents["cardData"][4]}
-        view={<MapView />}
+        view={<CardPhoto imgPos="center" cardImg={cardImg3} />}
         cardContent={<CC.CardContents4 />}
+      />
+      <Card
+        profileImg={profileImg3}
+        contents={contents["cardData"][5]}
+        view={<MapView />}
+        cardContent={<CC.CardContents5 />}
       />
     </>
   );
