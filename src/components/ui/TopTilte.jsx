@@ -1,15 +1,46 @@
+import React, { useState, useEffect, useRef } from "react";
+
 import styled from "styled-components";
-import { IconButton } from "@mui/material";
+import { IconButton, Zoom } from "@mui/material";
 import SJandSJ from "../../assets/icons/SJandSJ.svg";
-import menuIcon from "../../assets/icons/menu.svg";
+import sinjae from "../../assets/icons/sinjae.jpeg";
+import sejin from "../../assets/icons/sejin.jpeg";
+import love from "../../assets/icons/love.jpeg";
 
 const TopTitle = () => {
+  const [tic, setTic] = useState(0);
+  const ticRef = useRef();
+  useEffect(() => {
+    ticRef.current = setTimeout(() => {
+      setTic((tic + 1) % 4);
+    }, 1000);
+    return () => clearTimeout(ticRef.current);
+  }, []);
+  useEffect(() => {
+    ticRef.current = setTimeout(() => {
+      setTic((tic + 1) % 4);
+    }, 1000);
+    return () => clearTimeout(ticRef.current);
+  }, [tic]);
+
   return (
     <StTopTitleCont id="top-cont">
       <img className="sj-and-sj" src={SJandSJ} alt="" />
-      <StIconButton color="default" onClick={() => {}}>
-        <img src={menuIcon} alt="" />
-      </StIconButton>
+      <div className="animation-div"></div>
+      <StAnimeDiv>
+        <Zoom in={tic === 0}>
+          <img src={sinjae} alt={sinjae} />
+        </Zoom>
+        <Zoom in={tic === 1}>
+          <img className="heart" src={love} alt={love} />
+        </Zoom>
+        <Zoom in={tic === 2}>
+          <img src={sejin} alt={sejin} />
+        </Zoom>
+        <Zoom in={tic === 3}>
+          <img className="heart" src={love} alt={love} />
+        </Zoom>
+      </StAnimeDiv>
     </StTopTitleCont>
   );
 };
@@ -27,25 +58,34 @@ const StTopTitleCont = styled.div`
   align-items: center;
   width: 100%;
   height: ${({ theme }) => theme.resHpx(128, theme)};
-  padding-left: ${({ theme }) => theme.resWpx(32, theme)};
-  padding-right: ${({ theme }) => theme.resWpx(16, theme)};
+  padding: ${({ theme }) => theme.resWpx(32, theme)};
   .sj-and-sj {
     width: ${({ theme }) => theme.resWpx(234, theme)};
   }
   ${({ theme }) => theme.FadeIn("0.8s")};
 `;
 
-const StIconButton = styled(IconButton)`
+const StAnimeDiv = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  width: ${({ theme }) => theme.resWpx(84, theme)};
-  height: ${({ theme }) => theme.resWpx(84, theme)};
+  width: ${({ theme }) => theme.resWpx(90, theme)};
+  max-width: 58px;
+  height: ${({ theme }) => theme.resWpx(90, theme)};
+  max-width: 58px;
+
   padding: 0;
   border-radius: 100%;
 
   img {
-    width: ${({ theme }) => theme.resWpx(40, theme)};
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    &.heart {
+      width: 60%;
+      height: 60%;
+    }
   }
 `;

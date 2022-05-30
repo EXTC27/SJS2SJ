@@ -1,21 +1,17 @@
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import pre0 from "../../assets/images/gallery/pre0.png";
 import pre1 from "../../assets/images/gallery/pre1.png";
 import pre2 from "../../assets/images/gallery/pre2.png";
 import pre3 from "../../assets/images/gallery/pre3.png";
-import pre4 from "../../assets/images/gallery/pre4.png";
-import { MainPageStateContext } from "../../context/stateContext";
 
 const TopMenuList = () => {
   return (
     <StTopMenuListCont>
-      <TopMenu cName="first" imgSrc={pre0} idx={0} />
-      <TopMenu imgSrc={pre1} idx={1} />
-      <TopMenu imgSrc={pre2} idx={2} />
-      <TopMenu imgSrc={pre3} idx={3} />
-      <TopMenu cName="last" imgSrc={pre4} idx={4} />
+      <TopMenu imgSrc={pre0} imgPos={"center"} idx={0} />
+      <TopMenu imgSrc={pre1} imgPos={"center top"} idx={1} />
+      <TopMenu imgSrc={pre2} imgPos={"center bottom"} idx={2} />
+      <TopMenu imgSrc={pre3} imgPos={"center"} idx={3} />
     </StTopMenuListCont>
   );
 };
@@ -23,21 +19,23 @@ export default TopMenuList;
 
 const StTopMenuListCont = styled.div`
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
-  overflow-x: auto;
+  width: 100%;
   ${({ theme }) => theme.hideScrollBar}
   padding-top: ${({ theme }) => theme.resWpx(20, theme)};
   padding-bottom: ${({ theme }) => theme.resWpx(30, theme)};
+  padding-left: ${({ theme }) => theme.resWpx(32, theme)};
+  padding-right: ${({ theme }) => theme.resWpx(32, theme)};
   border-bottom: ${({ theme }) => theme.resWpx(1, theme)} solid #cedbe0;
   ${({ theme }) => theme.MoveUpFadeIn("0.8s", "0.5s")};
 `;
 
-const TopMenu = ({ cName, imgSrc, idx }) => {
+const TopMenu = ({ imgSrc, imgPos, idx }) => {
   const _nav = useNavigate();
   return (
     <StTopMenuCont
-      cName={cName}
+      imgPos={imgPos}
       onClick={() => {
         _nav(`/gallery/${idx}`);
       }}
@@ -58,11 +56,6 @@ const StTopMenuCont = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  margin-left: ${({ theme, cName }) =>
-    cName === "first" ? theme.resWpx(32, theme) : theme.resWpx(38, theme)};
-  margin-right: ${({ theme, cName }) =>
-    cName === "last" ? theme.resWpx(32, theme) : "0px"};
 
   .avatar-cont-grad {
     display: flex;
@@ -99,7 +92,7 @@ const StTopMenuCont = styled.div`
           width: 100%;
           height: 100%;
           object-fit: cover;
-          object-position: center;
+          object-position: ${({ imgPos }) => imgPos};
         }
       }
     }

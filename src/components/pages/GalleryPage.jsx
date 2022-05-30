@@ -4,10 +4,10 @@ import styled, { ThemeContext } from "styled-components";
 import createScrollSnap from "scroll-snap";
 import { Fade, IconButton } from "@mui/material";
 import { Clear } from "@mui/icons-material";
-import cardImg0 from "../../assets/images/card/image0.png";
-import cardImg1 from "../../assets/images/card/image1.png";
-import cardImg2 from "../../assets/images/card/image2.png";
-import cardImg3 from "../../assets/images/card/image3.png";
+import gallery0 from "../../assets/images/gallery/gallery0.png";
+import gallery1 from "../../assets/images/gallery/gallery1.png";
+import gallery2 from "../../assets/images/gallery/gallery2.png";
+import gallery3 from "../../assets/images/gallery/gallery3.png";
 
 const GalleryPage = () => {
   const _nav = useNavigate();
@@ -15,7 +15,7 @@ const GalleryPage = () => {
   const { appWidth } = useContext(ThemeContext);
   const tabWidth = useRef(0);
   const [idx, setIdx] = useState(Number(_param.idx));
-  const [imgList] = useState([cardImg0, cardImg1, cardImg2, cardImg3]);
+  const [imgList] = useState([gallery0, gallery1, gallery2, gallery3]);
 
   useEffect(() => {
     const _scrollDiv = document.getElementsByClassName("scroll-div")[0];

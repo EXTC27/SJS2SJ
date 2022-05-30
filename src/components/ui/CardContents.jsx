@@ -57,7 +57,11 @@ export const CardContents1 = () => {
       <div className="font line1">
         <b>우리 신재는_</b>
       </div>
-      <div className="font line2">{}</div>
+      <div className="font line2">
+        {contentJSON["cardData"][1]["tag"].map((el, idx) => (
+          <div key={idx}>{el}</div>
+        ))}
+      </div>
     </StCC1>
   );
 };
@@ -83,10 +87,16 @@ const StCC1 = styled.div`
     margin-bottom: ${({ theme }) => theme.resHpx(10, theme)};
   }
   .line2 {
+    display: flex;
+    flex-wrap: wrap;
     font-size: ${({ theme }) => theme.resWpx(32, theme)};
     line-height: calc(46 / 32);
-    word-break: keep-all;
     white-space: pre-wrap;
+
+    div {
+      flex-shrink: 0;
+      color: #3279bb;
+    }
   }
 `;
 
@@ -284,7 +294,7 @@ export const CardContents4 = () => {
           }}
         >
           <Button className="donation cash" variant="contained">
-            성금 계좌 복사하기
+            화환 대신 성금 기부하기
           </Button>
         </CopyToClipboard>
         <Button
@@ -297,7 +307,7 @@ export const CardContents4 = () => {
             );
           }}
         >
-          사랑의 쌀 기부하러가기
+          화환 대신 사랑의 쌀 기부하기
         </Button>
       </div>
     </StCC4>
@@ -326,7 +336,7 @@ const StCC4 = styled.div`
     justify-content: start;
 
     .donation {
-      background: black;
+      background: #494949;
     }
 
     .cash {

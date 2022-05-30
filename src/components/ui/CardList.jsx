@@ -39,13 +39,13 @@ const CardList = () => {
       <Card
         profileImg={profileImg3}
         contents={contents["cardData"][3]}
-        view={<CardPhoto imgPos="center bottom" cardImg={cardImg3} />}
+        view={<CardPhoto imgPos="center" cardImg={cardImg3} />}
         cardContent={<CC.CardContents3 />}
       />
       <Card
         profileImg={profileImg4}
         contents={contents["cardData"][4]}
-        view={<CardPhoto imgPos="center" cardImg={cardImg4} />}
+        view={<CardPhoto imgPos="center bottom" cardImg={cardImg4} />}
         cardContent={<CC.CardContents4 />}
       />
       <Card
