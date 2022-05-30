@@ -26,7 +26,7 @@ const StTopTitleCont = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 72px;
+  height: ${({ theme }) => theme.resHpx(128, theme)};
   padding-left: ${({ theme }) => theme.resWpx(32, theme)};
   padding-right: ${({ theme }) => theme.resWpx(16, theme)};
   .sj-and-sj {

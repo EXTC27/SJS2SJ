@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Button } from "@mui/material";
 import { KeyboardDoubleArrowUpRounded } from "@mui/icons-material";
 import imgFile from "../../assets/images/greeting/greeting.png";
+import "../../assets/fonts/font.css";
 
 const GreetingPage = ({ setOnGreeting }) => {
   const [enableBtn, setEnableBtn] = useState(false);
@@ -116,6 +117,9 @@ const StGreetingPageCont = styled.div`
 
       opacity: 0;
       animation: moveUpFadeIn 1s linear forwards;
+    }
+    .mapo {
+      font-family: "MapoGoldenPier";
     }
     .line0 {
       animation-delay: 0s;

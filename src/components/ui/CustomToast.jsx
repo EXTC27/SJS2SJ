@@ -42,6 +42,7 @@ const CustomToast = () => {
       id="custom-toast"
       className="font"
       style={{ opacity: "0", display: "flex" }}
+      popToast={popToast}
     >
       {popToast}
     </StToastCont>
@@ -59,7 +60,10 @@ const StToastCont = styled.div`
   line-height: 1.5;
   text-align: center;
 
-  background: rgba(0, 0, 0, 0.8);
+  background: ${({ popToast }) =>
+    popToast.includes("축하해주셔서")
+      ? "rgba(255, 172, 172, 0.95)"
+      : "rgba(0, 0, 0, 0.85)"};
   color: white;
   position: fixed;
   left: 50%;

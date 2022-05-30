@@ -30,11 +30,7 @@ const GlobalStyle = createGlobalStyle`
 
   .font {
     font-family: 'Noto Sans KR', sans-serif;
-    &.mapo {
-      font-family: 'MapoGoldenPier';
-    }
     width: fit-content;
-    
   }
 
   b {

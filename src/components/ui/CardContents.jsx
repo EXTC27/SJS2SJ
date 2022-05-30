@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Button } from "@mui/material";
@@ -145,7 +144,7 @@ const StCC2 = styled.div`
 `;
 
 export const CardContents3 = () => {
-  const { setPopModal, setModalTxt } = useContext(MainPageStateContext);
+  const { setPopModal } = useContext(MainPageStateContext);
   return (
     <StCC3>
       <div className="font line0">

@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { IconButton } from "@mui/material";
-import heartSvg from "../../assets/icons/heart.svg";
-import commentSvg from "../../assets/icons/comment.svg";
 import { MainPageStateContext } from "../../context/stateContext";
+import heartSvg from "../../assets/icons/heart.svg";
+import heartFillSvg from "../../assets/icons/heart-fill.svg";
+import commentSvg from "../../assets/icons/comment.svg";
 
 const Card = ({ profileImg, contents, view, cardContent }) => {
   const [isLike, setIsLike] = useState(false);
@@ -19,7 +20,7 @@ const Card = ({ profileImg, contents, view, cardContent }) => {
   }, [isLike, setPopToast]);
 
   const clickComment = () => {
-    setPopToast("아직 개발중이에요 😢");
+    setPopToast("디자인을 위한 버튼이에요 😭");
   };
 
   return (
@@ -38,14 +39,17 @@ const Card = ({ profileImg, contents, view, cardContent }) => {
         </div>
       </StCardTopCont>
       {view}
-      <StBtnSet>
+      <StBtnSet isLike={isLike}>
         <div
           className="heart-btn"
           onClick={() => {
             setIsLike(true);
           }}
         >
-          <img className="not-fill" src={heartSvg} alt={`${heartSvg}`} />
+          <img className="no-fill" src={heartSvg} alt={`${heartSvg}`} />
+          <img className="fill" src={heartFillSvg} alt={`${heartFillSvg}`} />
+          {/* <div className="fill-cont">
+          </div> */}
         </div>
         <StCommentBtn color="default" onClick={clickComment}>
           <img src={commentSvg} alt={`${commentSvg}`} />
@@ -106,7 +110,7 @@ const StCardTopCont = styled.div`
           width: 100%;
           height: 100%;
           object-fit: cover;
-          object-position: center;
+          object-position: top;
         }
       }
     }
@@ -130,7 +134,7 @@ const StBtnSet = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  margin-bottom: ${({ theme }) => theme.resHpx(24, theme)};
+  margin: ${({ theme }) => theme.resHpx(12, theme)} 0;
   padding: 0 ${({ theme }) => theme.resWpx(32, theme)};
   img {
     height: ${({ theme }) => theme.resWpx(48, theme)};
@@ -140,10 +144,39 @@ const StBtnSet = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: ${({ theme }) => theme.resWpx(64, theme)};
-    height: ${({ theme }) => theme.resWpx(64, theme)};
+    width: ${({ theme }) => theme.resWpx(72, theme)};
+    height: ${({ theme }) => theme.resWpx(72, theme)};
     margin-right: ${({ theme }) => theme.resWpx(20, theme)};
     color: #ff2600;
+    .no-fill {
+      position: absolute;
+      z-index: 1;
+    }
+    .fill {
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      overflow: clip;
+      position: absolute;
+      z-index: 2;
+      /* left: 0;
+      bottom: 0; */
+      top: 50%;
+      left: 50%;
+      transform: ${({ theme, isLike }) =>
+        isLike ? "translate(-50%, -50%)" : "translate(0%,0%)"};
+      display: flex;
+      width: ${({ theme, isLike }) =>
+        isLike ? theme.resWpx(48, theme) : "0px"};
+      height: ${({ theme, isLike }) =>
+        isLike ? theme.resWpx(48, theme) : "0px"};
+      /* .fill {
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        left: 50%;
+        transform: ${({ theme, isLike }) =>
+        isLike ? "translate(-50%, 50%)" : "translate(0,0)"};
+      } */
+    }
   }
 `;
 
