@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/SJS2SJ/static/css/main.68c230ee.css",
-    "main.js": "/SJS2SJ/static/js/main.0efa1ad2.js",
+    "main.js": "/SJS2SJ/static/js/main.52df5bef.js",
     "static/js/787.c682397e.chunk.js": "/SJS2SJ/static/js/787.c682397e.chunk.js",
     "static/media/greeting.png": "/SJS2SJ/static/media/greeting.48283c18d00f08f5ff83.png",
-    "static/media/image3.png": "/SJS2SJ/static/media/image3.6ffd0600c8c9beae1b37.png",
     "static/media/image0.png": "/SJS2SJ/static/media/image0.d268bd98bbc04be34942.png",
     "static/media/image2.png": "/SJS2SJ/static/media/image2.413e483450e723b77729.png",
-    "static/media/image4.png": "/SJS2SJ/static/media/image4.062ce82670b69241006f.png",
+    "static/media/image3.png": "/SJS2SJ/static/media/image3.062ce82670b69241006f.png",
+    "static/media/image4.png": "/SJS2SJ/static/media/image4.05a19e7a9c0fc4b39f70.png",
     "static/media/image1.png": "/SJS2SJ/static/media/image1.c2534bcb422655c9f055.png",
     "static/media/MapoGoldenPier.ttf": "/SJS2SJ/static/media/MapoGoldenPier.505b55b78d7e8a057ca6.ttf",
     "static/media/pre0.png": "/SJS2SJ/static/media/pre0.51b4698fb382a91d4dec.png",
@@ -29,11 +29,11 @@
     "static/media/heart.svg": "/SJS2SJ/static/media/heart.c243f47d36c07dc4c1297256ee36b6cb.svg",
     "static/media/heart-fill.svg": "/SJS2SJ/static/media/heart-fill.5e448e51bc1dc89e0c49de9d7d45c376.svg",
     "main.68c230ee.css.map": "/SJS2SJ/static/css/main.68c230ee.css.map",
-    "main.0efa1ad2.js.map": "/SJS2SJ/static/js/main.0efa1ad2.js.map",
+    "main.52df5bef.js.map": "/SJS2SJ/static/js/main.52df5bef.js.map",
     "787.c682397e.chunk.js.map": "/SJS2SJ/static/js/787.c682397e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.68c230ee.css",
-    "static/js/main.0efa1ad2.js"
+    "static/js/main.52df5bef.js"
   ]
 }
