@@ -1,5 +1,5 @@
 /* global Kakao */
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
 import { Button } from "@mui/material";
 import { AssignmentOutlined } from "@mui/icons-material";
