@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.68c230ee.css","mappings":"AAAA,WACE,0BAA6B,CAG7B,iBAAkB,CADlB,eAAmB,CADnB,wFAGF","sources":["assets/fonts/font.css"],"sourcesContent":["@font-face {\n  font-family: \"MapoGoldenPier\";\n  src: url(\"./MapoGoldenPier.ttf\") format(\"truetype\");\n  font-weight: normal;\n  font-style: normal;\n}\n"],"names":[],"sourceRoot":""}
