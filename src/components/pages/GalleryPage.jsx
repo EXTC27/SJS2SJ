@@ -25,17 +25,20 @@ const GalleryPage = () => {
     _scrollDiv.style.left = `${tabWidth.current * idx}px`;
 
     const _dom = document.getElementsByClassName("img-cont")[0];
-
     createScrollSnap(_dom, {
       snapDestinationX: "100%",
       timeout: 100,
       duration: 200,
       threshold: 0.25,
     });
-    _dom.scrollTo({ left: appWidth * idx, behavior: "smooth" });
     _dom.addEventListener("scroll", handleScroll);
     return () => _dom.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const _dom = document.getElementsByClassName("img-cont")[0];
+    _dom.scrollTo({ left: appWidth * idx, behavior: "smooth" });
+  }, [imgList]);
 
   const handleScroll = (e) => {
     const _scrollDiv = document.getElementsByClassName("scroll-div")[0];

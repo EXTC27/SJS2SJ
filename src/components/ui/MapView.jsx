@@ -28,21 +28,21 @@ const MapView = () => {
       zoom: 16,
     });
     new naver.maps.Marker({
-      position: new naver.maps.LatLng(_mCoord.lat, _mCoord.lng),
-      map: _map,
-      icon: {
-        url: marry,
-        size: new naver.maps.Size(50, 50),
-        scaledSize: new naver.maps.Size(50, 50),
-      },
-    });
-    new naver.maps.Marker({
       position: new naver.maps.LatLng(_pCoord.lat, _pCoord.lng),
       map: _map,
       icon: {
         url: parking,
         size: new naver.maps.Size(40, 40),
         scaledSize: new naver.maps.Size(40, 40),
+      },
+    });
+    new naver.maps.Marker({
+      position: new naver.maps.LatLng(_mCoord.lat, _mCoord.lng),
+      map: _map,
+      icon: {
+        url: marry,
+        size: new naver.maps.Size(50, 50),
+        scaledSize: new naver.maps.Size(50, 50),
       },
     });
     mapRef.current = _map;

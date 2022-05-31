@@ -74,7 +74,7 @@ const StAnimeDiv = styled.div`
   width: ${({ theme }) => theme.resWpx(90, theme)};
   max-width: 58px;
   height: ${({ theme }) => theme.resWpx(90, theme)};
-  max-width: 58px;
+  max-height: 58px;
 
   padding: 0;
   border-radius: 100%;
