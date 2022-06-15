@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import styled from "styled-components";
-import { IconButton, Zoom } from "@mui/material";
+import { Zoom } from "@mui/material";
 import SJandSJ from "../../assets/icons/SJandSJ.svg";
 import sinjae from "../../assets/icons/sinjae.jpeg";
 import sejin from "../../assets/icons/sejin.jpeg";

@@ -429,6 +429,12 @@ export const CardContents5 = () => {
           </CopyToClipboard>
         </div>
       </div>
+      <div className="font line1">
+        <b>• 포항 버스타는 곳 🚌</b>
+        <div className="parking pohang">
+          {"포항시 용흥동 만남의 광장\n(제일교회 뒷편 공영주차장)"}
+        </div>
+      </div>
     </StCC5>
   );
 };
@@ -473,6 +479,10 @@ const StCC5 = styled.div`
     .bus-stop,
     .parking {
       margin: ${({ theme }) => theme.resHpx(18, theme)} 0;
+    }
+    .pohang {
+      margin: ${({ theme }) => theme.resHpx(18, theme)} 0;
+      white-space: pre;
     }
     th {
       padding-right: ${({ theme }) => theme.resWpx(48, theme)};
