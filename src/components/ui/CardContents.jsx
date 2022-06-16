@@ -432,7 +432,9 @@ export const CardContents5 = () => {
       <div className="font line1">
         <b>• 포항 버스타는 곳 🚌</b>
         <div className="parking pohang">
-          {"포항시 용흥동 만남의 광장\n(제일교회 뒷편 공영주차장)"}
+          {
+            "7월 2일 (토) 오전 7시 30분 출발\n포항시 용흥동 만남의 광장\n(제일교회 뒷편 공영주차장)"
+          }
         </div>
       </div>
     </StCC5>
