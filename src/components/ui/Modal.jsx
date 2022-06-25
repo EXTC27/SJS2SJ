@@ -16,17 +16,39 @@ const Modal = () => {
     <Dialog open={popModal !== ""} onClose={() => setPopModal("")}>
       {popModal === "groom" ? (
         <StAccountCont>
-          <div className="account-cont">
+          <div className="account-cont first">
+            <div className="font-cont">
+              <div className="font">우리</div>
+              <div className="font">{`${process.env.REACT_APP_GROOM0}`}</div>
+              <div className="font">
+                예금주: <b>김강식</b>
+              </div>
+            </div>
+            <div className="btn-cont">
+              <CopyToClipboard
+                text={`우리 ${process.env.REACT_APP_GROOM0}`}
+                onCopy={() => {
+                  handleClick("김강식");
+                }}
+              >
+                <Button className="donation" variant="contained">
+                  계좌 복사
+                </Button>
+              </CopyToClipboard>
+            </div>
+          </div>
+          <div className="line"></div>
+          <div className="account-cont last">
             <div className="font-cont">
               <div className="font">KB국민</div>
-              <div className="font">{`${process.env.REACT_APP_GROOM}`}</div>
+              <div className="font">{`${process.env.REACT_APP_GROOM1}`}</div>
               <div className="font">
                 예금주: <b>김신재</b>
               </div>
             </div>
             <div className="btn-cont">
               <CopyToClipboard
-                text={`KB국민 ${process.env.REACT_APP_GROOM}`}
+                text={`KB국민 ${process.env.REACT_APP_GROOM1}`}
                 onCopy={() => {
                   handleClick("김신재");
                 }}
