@@ -26,7 +26,7 @@ const Modal = () => {
             </div>
             <div className="btn-cont">
               <CopyToClipboard
-                text={`우리 ${process.env.REACT_APP_GROOM0}`}
+                text={`${process.env.REACT_APP_GROOM0}`}
                 onCopy={() => {
                   handleClick("김강식");
                 }}
@@ -48,7 +48,7 @@ const Modal = () => {
             </div>
             <div className="btn-cont">
               <CopyToClipboard
-                text={`KB국민 ${process.env.REACT_APP_GROOM1}`}
+                text={`${process.env.REACT_APP_GROOM1}`}
                 onCopy={() => {
                   handleClick("김신재");
                 }}
@@ -72,7 +72,7 @@ const Modal = () => {
             </div>
             <div className="btn-cont">
               <CopyToClipboard
-                text={`농협 ${process.env.REACT_APP_BRIDE0}`}
+                text={`${process.env.REACT_APP_BRIDE0}`}
                 onCopy={() => {
                   handleClick("이남숙");
                 }}
@@ -94,7 +94,7 @@ const Modal = () => {
             </div>
             <div className="btn-cont">
               <CopyToClipboard
-                text={`KB국민 ${process.env.REACT_APP_BRIDE1}`}
+                text={`${process.env.REACT_APP_BRIDE1}`}
                 onCopy={() => {
                   handleClick("이세진");
                 }}
