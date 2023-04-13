@@ -49,7 +49,8 @@ export default TopTitle;
 const StTopTitleCont = styled.div`
   transition: box-shadow 0.1s ease-in;
   background: white;
-  position: fixed;
+  /* position: fixed; */
+  position: sticky;
   z-index: 5;
   top: 0;
   left: 0;
