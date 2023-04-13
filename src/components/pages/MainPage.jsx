@@ -37,6 +37,6 @@ export default MainPage;
 const StMainPageCont = styled.div`
   background: white;
   width: 100%;
-  /* padding-top: ${({ theme }) => theme.resHpx(128, theme)}; */
+  padding-top: ${({ theme }) => theme.resHpx(128, theme)};
   ${({ theme }) => theme.hideScrollBar}
 `;

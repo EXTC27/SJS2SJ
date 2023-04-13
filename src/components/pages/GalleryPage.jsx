@@ -36,8 +36,9 @@ const GalleryPage = () => {
   }, []);
 
   useEffect(() => {
+    if (imgList.length === 0) return;
     const _dom = document.getElementsByClassName("img-cont")[0];
-    _dom.scrollTo({ left: appWidth * idx, behavior: "smooth" });
+    _dom.scrollTo({ left: appWidth * Number(_param.idx) });
   }, [imgList]);
 
   const handleScroll = (e) => {
@@ -77,9 +78,11 @@ const GalleryPage = () => {
           </div>
         </StAnimateBar>
         <div className="img-cont">
-          {imgList.map((el, idx) => (
-            <img key={idx} src={el} alt={el} />
-          ))}
+          <div className="img-wrap">
+            {imgList.map((el, idx) => (
+              <img key={idx} src={el} alt={el} />
+            ))}
+          </div>
         </div>
       </StGalleryPageCont>
     </Fade>
@@ -109,8 +112,15 @@ const StGalleryPageCont = styled.div`
     height: calc(100% - 72px);
     padding-bottom: ${({ theme }) => theme.resHpx(72, theme)};
     overflow-x: auto;
-    img {
-      width: 100%;
+    .img-wrap {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      width: ${({ theme }) => theme.appWidth * 4}px;
+      img {
+        width: ${({ theme }) => theme.appWidth}px;
+        background-color: #353535;
+      }
     }
   }
 `;

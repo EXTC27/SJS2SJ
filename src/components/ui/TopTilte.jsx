@@ -49,15 +49,18 @@ export default TopTitle;
 const StTopTitleCont = styled.div`
   transition: box-shadow 0.1s ease-in;
   background: white;
-  /* position: fixed; */
-  position: sticky;
+  position: fixed;
   z-index: 5;
   top: 0;
-  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  @media screen and (max-width: 479px) {
+    width: ${({ theme }) => theme.appWidth}px;
+  }
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
   height: ${({ theme }) => theme.resHpx(128, theme)};
   padding: ${({ theme }) => theme.resWpx(32, theme)};
   .sj-and-sj {

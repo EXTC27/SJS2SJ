@@ -20,7 +20,7 @@ const App = () => {
     const _scrollLocation = document.documentElement.scrollTop;
     const _topCont = document.getElementById("top-cont");
     if (_scrollLocation > 0) {
-      _topCont.style.boxShadow = "0px 14px 10px -10px rgba(0, 0, 0, 0.2)";
+      _topCont.style.boxShadow = "0px 6px 4px -4px rgba(0, 0, 0, 0.2)";
     } else {
       _topCont.style.boxShadow = "0px 0px 0px 0px rgba(0, 0, 0, 0)";
     }
@@ -55,7 +55,6 @@ const App = () => {
 export default App;
 
 const StAppCont = styled.main`
-  position: relative;
   margin: auto;
   max-width: 480px;
   width: ${({ theme }) => theme.appWidth}px;
